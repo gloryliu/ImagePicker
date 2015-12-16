@@ -99,14 +99,14 @@ public class ExploreAdapter extends BaseAdapter {
 
         String bucket_name = item.getName();
         if (bucket_name.toLowerCase().equals("camera")) {
-            holder.name.setText(com.yokeyword.imagepicker.R.string.yo_my_pic);
+            holder.name.setText(R.string.yo_my_pic);
         } else if (bucket_name.toLowerCase().equals("screenshots")) {
-            holder.name.setText(com.yokeyword.imagepicker.R.string.yo_screenshots);
+            holder.name.setText(R.string.yo_screenshots);
         } else {
             holder.name.setText(bucket_name);
         }
 
-        holder.count.setText(String.format(context.getString(com.yokeyword.imagepicker.R.string.yo_count), item.getCount()));
+        holder.count.setText(String.format(context.getString(R.string.yo_count), item.getCount()));
 
         return convertView;
     }
