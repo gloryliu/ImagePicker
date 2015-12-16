@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/titlebar"
+        layout="@layout/title_bar" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_below="@id/titlebar"
+        android:layout_width="match_parent"
+        android:background="@color/yo_bg_app"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

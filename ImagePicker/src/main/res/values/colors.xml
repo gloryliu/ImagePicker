@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- bar的背景色和 标题/图标颜色 -->
+    <color name="yo_bar_color">#f1f1f1</color>
+    <color name="yo_bar_title_color">#373737</color>
+
+    <color name="yo_bg_app">#f1f1f1</color>
+    <color name="yo_bg_grey">#e0e0e0</color>
+    <color name="yo_bg_divider">#e0e0e0</color>
+
+    <color name="yo_blue">#03a9f4</color>
+    <color name="yo_text_light">#979797</color>
+</resources>

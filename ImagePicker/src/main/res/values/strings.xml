@@ -1,0 +1,11 @@
+<resources>
+    <string name="yo_pick_pic">选择图片</string>
+    <string name="yo_my_pic">我的照片</string>
+    <string name="yo_screenshots">截图</string>
+    <string name="yo_count">( %1$d 张图片)</string>
+    <string name="yo_tip_select">请选择照片</string>
+    <string name="yo_preview">预览</string>
+    <string name="yo_select_pic_count">已选中%1$d张图片</string>
+    <string name="yo_pic_detail">图片预览</string>
+    <string name="yo_loding">加载中</string>
+</resources>
