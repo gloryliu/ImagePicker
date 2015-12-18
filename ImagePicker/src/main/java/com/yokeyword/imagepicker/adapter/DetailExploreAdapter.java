@@ -35,7 +35,7 @@ public class DetailExploreAdapter extends BaseAdapter {
     private ViewHolder holder;
 
     // 用来控制CheckBox的选中状况
-    private static List<Boolean> mChecked;
+    private List<Boolean> mChecked;
 
     private int width, height;
 
