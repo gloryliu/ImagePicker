@@ -3,6 +3,7 @@ package com.yokeyword.imagepicker;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -43,7 +44,12 @@ public class ImagePickerActivity extends FragmentActivity implements ExploreFrag
             isMultiplePick = bundle.getBoolean(EXTRA_IS_MULTIPLE, true);
         }
 
-        initView();
+        initView(savedInstanceState);
+    }
+
+    protected void initView(Bundle savedInstanceState) {
+        ImageButton btnBack = (ImageButton) findViewById(R.id.btn_bar_back);
+        tvBarTitle = (TextView) findViewById(R.id.tv_bat_title);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.container, ExploreFragment.newInstance()).commit();
@@ -54,12 +60,6 @@ public class ImagePickerActivity extends FragmentActivity implements ExploreFrag
                 tvBarTitle.setText(R.string.yo_preview);
             }
         }
-
-    }
-
-    protected void initView() {
-        ImageButton btnBack = (ImageButton) findViewById(R.id.btn_bar_back);
-        tvBarTitle = (TextView) findViewById(R.id.tv_bat_title);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,24 +73,20 @@ public class ImagePickerActivity extends FragmentActivity implements ExploreFrag
      * 切换目录
      */
     private void switchDir(String bucket_name) {
-        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-        trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        trans.add(R.id.container, DetailExploreFragment.newInstance(bucket_name,isMultiplePick ));
-        trans.addToBackStack(null);
-        try {
-            trans.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        addFragment(DetailExploreFragment.newInstance(bucket_name, isMultiplePick));
     }
 
     /**
      * 预览
      */
     private void preview(ArrayList<String> imgs) {
+        addFragment(PreviewFragment.newInstance(imgs, isMultiplePick));
+    }
+
+    private void addFragment(Fragment fragment) {
         FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
         trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        trans.add(R.id.container, PreviewFragment.newInstance(imgs,isMultiplePick));
+        trans.add(R.id.container, fragment);
         trans.addToBackStack(null);
         try {
             trans.commit();
